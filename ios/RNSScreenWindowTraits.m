@@ -136,14 +136,13 @@
     if ([RNSScreenWindowTraits maskFromOrientation:currentDeviceOrientation] & orientationMask) {
       if (!([RNSScreenWindowTraits maskFromOrientation:currentInterfaceOrientation] & orientationMask)) {
         // if the device orientation is in the mask, but interface orientation is not, we rotate to device's orientation
-        NSLog(@"SCREENS: the device orientation is in the mask, but interface orientation is not, we rotate to device's orientation");
+        NSLog(@"SCREENS: the device orientation is in the mask, but interface orientation is not, we rotate to devices orientation");
         newOrientation = currentDeviceOrientation;
       } else {
         if (currentDeviceOrientation != currentInterfaceOrientation) {
           // if both device orientation and interface orientation are in the mask, but in different orientations, we
           // rotate to device's orientation
-          NSLog(@"SCREENS: both device orientation and interface orientation are in the mask, but in different orientations, we
-          rotate to device's orientation");
+          NSLog(@"SCREENS: both device orientation and interface orientation are in the mask, but in different orientations, we rotate to device's orientation");
           newOrientation = currentDeviceOrientation;
         }
       }
@@ -151,8 +150,7 @@
       if (!([RNSScreenWindowTraits maskFromOrientation:currentInterfaceOrientation] & orientationMask)) {
         // if both device orientation and interface orientation are not in the mask, we rotate to closest available
         // rotation from mask
-        NSLog(@"SCREENS: both device orientation and interface orientation are not in the mask, we rotate to closest available
-        rotation from mask");
+        NSLog(@"SCREENS: both device orientation and interface orientation are not in the mask, we rotate to closest available rotation from mask");
         newOrientation = [RNSScreenWindowTraits defaultOrientationForOrientationMask:orientationMask];
       } else {
         // if the device orientation is not in the mask, but interface orientation is in the mask, do nothing
@@ -160,7 +158,7 @@
       }
     }
     if (newOrientation != UIInterfaceOrientationUnknown) {
-       NSLog(@"SCREENS: Attempting rotation of device")
+       NSLog(@"SCREENS: Attempting rotation of device");
       [[UIDevice currentDevice] setValue:@(newOrientation) forKey:@"orientation"];
       [UIViewController attemptRotationToDeviceOrientation];
     }
