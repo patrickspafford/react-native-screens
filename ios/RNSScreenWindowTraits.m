@@ -153,8 +153,9 @@
         NSLog(@"SCREENS: both device orientation and interface orientation are not in the mask, we rotate to closest available rotation from mask");
         newOrientation = [RNSScreenWindowTraits defaultOrientationForOrientationMask:orientationMask];
       } else {
+        newOrientation = [RNSScreenWindowTraits defaultOrientationForOrientationMask:orientationMask];
         // if the device orientation is not in the mask, but interface orientation is in the mask, do nothing
-        NSLog(@"SCREENS: the device orientation is not in the mask, but interface orientation is in the mask, do nothing");
+        NSLog(@"SCREENS: the device orientation is not in the mask, but interface orientation is in the mask, so do something");
       }
     }
     if (newOrientation != UIInterfaceOrientationUnknown) {
